@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="corredoresPU" 
+		transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:CorredoresDS</jta-data-source>
+		<!-- <non-jta-data-source>java:/CorredoresDS</non-jta-data-source> -->
+		<class>pacifico.seguros.corredores.services.domain.Client</class>
+		<class>pacifico.seguros.corredores.services.domain.Policy</class>
+		<class>pacifico.seguros.corredores.services.domain.SummaryManagerial</class>
+		<class>pacifico.seguros.corredores.services.domain.SummaryExecutive</class>
+		<!-- <class>pacifico.seguros.corredores.services.domain.AccountStatus</class> 
+			<class>pacifico.seguros.corredores.services.domain.PolicyDetalle</class> 
+			<class>pacifico.seguros.corredores.services.domain.FullPayment</class> -->
+		<class>pacifico.seguros.corredores.services.domain.PolicyMovement</class>
+		<class>pacifico.seguros.corredores.services.domain.Obligation</class>
+		<class>pacifico.seguros.corredores.services.domain.Insured</class>
+		<class>pacifico.seguros.corredores.services.domain.Quota</class>
+		<!-- <class>pacifico.seguros.corredores.services.domain.FormPayment</class> -->
+		<class>pacifico.seguros.corredores.services.domain.Product</class>
+		<class>pacifico.seguros.corredores.services.domain.Broker</class>
+		<class>pacifico.seguros.corredores.services.domain.BrokerGoal</class>
+		<class>pacifico.seguros.corredores.services.domain.BusinessLineProduct</class>
+		<class>pacifico.seguros.corredores.services.domain.Affiliation</class>
+		<class>pacifico.seguros.corredores.services.domain.Vehicle</class>
+		<class>pacifico.seguros.corredores.services.domain.Endorser</class>
+		<class>pacifico.seguros.corredores.services.domain.Accent</class>
+		<class>pacifico.seguros.corredores.services.domain.CommissionLiquidation</class>
+		<class>pacifico.seguros.corredores.services.domain.CommissionPreLiquidation</class>
+		<class>pacifico.seguros.corredores.services.domain.Sinister</class>
+		<class>pacifico.seguros.corredores.services.domain.SinisterPay</class>
+		<class>pacifico.seguros.corredores.services.domain.WarrantyLetter</class>
+		<class>pacifico.seguros.corredores.services.domain.Parameter</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<!-- <property name="hibernate.validator.apply_to_ddl" value="false" />
+			<property name="hibernate.validator.autoregister_listeners"
+				value="false" /> -->
+				
+			<!-- <property name="hibernate.session.events.log" value="true" /> -->
+			<!-- <property name="hibernate.generate_statistics" value="true" /> -->
+			<!-- <property name="hibernate.use_sql_comments" value="true" /> -->
+			<property name="hibernate.enable_lazy_load_no_trans" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- <property name="hibernate.default_schema" value="uport00" /> --> 
+			<!-- <property name="hibernate.hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="javax.persistence.query.timeout" value="10000"/>
+			<!--  <property name="hibernate.cache.use_second_level_cache"
+				value="true" /> -->
+			<!--  <property name="hibernate.cache.use_query_cache" value="true" /> -->
+			<!-- <property name="hibernate.cache.region_prefix" value="tempdb"/> -->
+			<!-- <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.EhCacheProvider"/> -->
+			<!--  <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.EhCacheProvider" /> -->
+			<!-- <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jbc2.JndiMultiplexedJBossCacheRegionFactory"/> -->
+			<!-- <property name="hibernate.cache.region.jbc2.cachefactory" value="java:CacheManager"/> -->
+			<!-- <property name="hibernate.cache.region.jbc2.cfg.entity" value="mvcc-entity"/> -->
+			<!-- <property name="hibernate.cache.region.jbc2.cfg.query" value="local-query"/> -->
+			<property name="jboss.entity.manager.factory.jndi.name" value="java:/corredoresPU"/>
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="datasourceDS" transaction-type="JTA">
+	    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    <jta-data-source>java:datasourceDS</jta-data-source>	    
+	  <exclude-unlisted-classes />
+	    <properties>
+	      <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+	      <property name="jboss.entity.manager.factory.jndi.name" value="java:/datasourceDS"/>
+	    </properties>
+  </persistence-unit>
+</persistence>
+

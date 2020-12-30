@@ -1,0 +1,32 @@
+
+	package pe.com.eai.reporte.banco.domain;
+
+	import javax.persistence.Column;
+	import javax.persistence.Entity;
+	import javax.persistence.GeneratedValue;
+	import javax.persistence.Id;
+	import javax.persistence.Table;
+
+	@Entity
+	@Table(name = "ORDENESPAGO")
+	public class OrdenesPago {
+		@Column(name = "MONTO")
+		private String monto;
+		@Column(name = "MONEDA")
+		private String moneda;
+		@Column(name = "ESTADO")
+		private String estado;
+		@Column(name = "FECHAPAGO")
+		private String fechapago;
+		@Id
+		@GeneratedValue
+		@Column(name = "CODIGO")
+		private String codigo;
+		
+		@Column(name = "CODIGOBANK")
+		private String codigobank;
+
+
+		
+	}
+

@@ -1,0 +1,24 @@
+package pe.com.eai.money.parts;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double[]numeros= {1.4,1.3};
+		System.out.println(numeros.length);
+System.out.println(numeros[1]);
+numeros = append(numeros, 1.9);
+for(int i = 0; i < numeros.length; i++) {
+	System.out.println("numeros"+i);
+	System.out.println(numeros[i]);
+	
+}
+	}
+	static <T> T[] append(T[] arr, T element) {
+	    final int N = arr.length;
+	    arr = Arrays.copyOf(arr, N + 1);
+	    arr[N] = element;
+	    return arr;
+	}
+
+}

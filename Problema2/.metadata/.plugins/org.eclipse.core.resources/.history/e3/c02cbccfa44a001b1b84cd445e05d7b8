@@ -1,0 +1,37 @@
+package pe.com.eai.reporte.banco.domain;
+@Entity
+@Table(name = "AFILIACION")
+@XmlRootElement
+@NamedQueries({@NamedQuery(name = "Affiliation.findByPK", query = "select a  from Affiliation a  where a.affiliationPK.codproducto = :codProducto  AND a.affiliationPK.idcliente = :clientId  AND a.affiliationPK.numpoliza = :policyNumber ORDER BY a.dueDate DESC ")})
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+public class Bancos {
+private String nombre;
+private String direccion;
+private String fecharegistro;
+private String codigo;
+public String getNombre() {
+	return nombre;
+}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
+public String getDireccion() {
+	return direccion;
+}
+public void setDireccion(String direccion) {
+	this.direccion = direccion;
+}
+public String getFecharegistro() {
+	return fecharegistro;
+}
+public void setFecharegistro(String fecharegistro) {
+	this.fecharegistro = fecharegistro;
+}
+public String getCodigo() {
+	return codigo;
+}
+public void setCodigo(String codigo) {
+	this.codigo = codigo;
+}
+
+}

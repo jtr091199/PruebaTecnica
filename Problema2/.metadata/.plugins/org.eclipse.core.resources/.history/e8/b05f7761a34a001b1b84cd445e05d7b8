@@ -1,0 +1,8 @@
+package pe.com.eai.reporte.banco.domain;
+
+public class Bancos {
+private String nombre;
+private String direccion;
+private String fecharegistro;
+private String codigo;
+}

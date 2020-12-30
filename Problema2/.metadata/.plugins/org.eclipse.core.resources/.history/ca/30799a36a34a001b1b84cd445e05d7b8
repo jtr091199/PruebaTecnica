@@ -1,0 +1,5 @@
+package pe.com.eai.reporte.banco.domain;
+
+public class Bancos {
+
+}

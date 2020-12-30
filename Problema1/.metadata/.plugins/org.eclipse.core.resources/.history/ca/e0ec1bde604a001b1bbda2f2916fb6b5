@@ -1,0 +1,65 @@
+package pe.com.eai.money.parts;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class MoneyParts {
+	
+	public static void main(String[] args) {
+		build(Double.parseDouble(args[0]));
+	}
+public static void build(double monto) {
+	ArrayList<Double>numeros=new ArrayList<>();
+	double denominaciones[]= {2.0,1.0,4.0};
+     //Denominaciones
+	
+System.out.println("gooo");
+	Implementation(monto, numeros, 0,denominaciones);
+	
+}
+public static double sumaArray(ArrayList<Double> numeros) {
+	double sum=0;
+	for(int i = 0; i < numeros.size(); i++) {
+		sum += numeros.get(i);
+		
+	}
+	
+	return sum;
+}
+public  static void Implementation(double monto,ArrayList<Double> numeros,double suma,double[] denominaciones) {
+	
+	if((suma == sumaArray(numeros) )&& (suma==monto)) {
+		System.out.println("suma final"+numeros);
+	}
+	else {
+	
+		for(int i=0;i<denominaciones.length;i++) {
+		System.out.println("hol1");
+		System.out.println(suma);
+		
+		System.out.println("i>"+i);
+		suma+=denominaciones[i+1];
+		System.out.println("hol2");
+		System.out.println(suma+";"+monto+";"+denominaciones.[i+1]);
+		if(suma<=monto) {
+			double[]= {};
+			System.out.println("hol3");
+			numeros.add(denominaciones.[i+1]);
+			System.out.println("agregado:"+denominaciones[i+1]);
+			Implementation(monto, numeros, suma,denominaciones);
+			System.out.println("fin:"+suma);
+			System.out.println("fin2:"+denominaciones[i+1]);
+			System.out.println("fin3:"+denominaciones.indexOf(denominaciones.get(i))  Doubles.indexOf(denominaciones, target));
+			System.out.println(numeros);
+		numeros.remove(denominaciones.indexOf(denominaciones.get(i)));
+		System.out.println("removido:"+numeros);
+		System.out.println("pasoo");
+		}
+		
+		suma-=denominaciones.get(i);
+		System.out.println("pasoo1");
+		
+	}
+	}
+}
+}

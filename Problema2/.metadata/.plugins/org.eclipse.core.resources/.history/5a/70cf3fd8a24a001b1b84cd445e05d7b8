@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	
+	<persistence-unit name="datasourceDS" transaction-type="JTA">
+	    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    <jta-data-source>java:datasourceDS</jta-data-source>	
+	   <class>pe.com.eai.reporte.banco.domain.OrdenesPago</class>    
+	   <class>pe.com.eai.reporte.banco.domain.Sucursales</class>    
+	  <exclude-unlisted-classes />
+	    <properties>
+	    <property name="hibernate.enable_lazy_load_no_trans" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+	      <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+		  <property name="javax.persistence.query.timeout" value="10000"/>
+	      <property name="jboss.entity.manager.factory.jndi.name" value="java:/datasourceDS"/>
+	    </properties>
+  </persistence-unit>
+</persistence>
+

@@ -1,0 +1,71 @@
+package pe.com.eai.reporte.banco.service;
+
+import java.util.List;
+
+import in.benchresources.cdm.player.PlayerListType;
+import in.benchresources.cdm.player.PlayerType;
+import pe.com.eai.reporte.banco.domain.BancoListType;
+import pe.com.eai.reporte.banco.domain.Bancos;
+import pe.com.eai.reporte.banco.domain.OrdenesPago;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.apache.cxf.spring.hibernate.model.Player;
+
+@Service("playerService")
+public class BancoServiceImpl implements IBancoService {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+
+	@Transactional
+	@Override
+	public OrdenesPago getPlayerInfo(int playerId) {
+
+		// retrieve player based on the id supplied in the formal argument
+		Player player = (Player) sessionFactory.getCurrentSession().get(Player.class, playerId);
+
+		// set values and return
+		PlayerType getplayer = new PlayerType	();
+		getplayer.setPlayerId(player.getPlayerId());
+		getplayer.setName(player.getName());
+		getplayer.setAge(player.getAge());
+		getplayer.setMatches(player.getMatches());
+		return getplayer;
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public BancoListType getAllEntidades() {
+
+		List<Bancos> lstBanco = sessionFactory.getCurrentSession().createCriteria(Bancos.class).list();
+
+		
+		BancoListType bancoListType = new BancoListType();
+
+		for(Bancos banco : lstBanco) {
+			
+			Bancos bancoType = new Bancos();
+			bancoType.setCodigo(banco.getCodigo());
+			bancoType.setDireccion(banco.getDireccion());
+			bancoType.setFecharegistro(banco.getFecharegistro());
+			bancoListType.getbancoType().add(bancoType);
+		}
+		return bancoListType;
+	}
+}

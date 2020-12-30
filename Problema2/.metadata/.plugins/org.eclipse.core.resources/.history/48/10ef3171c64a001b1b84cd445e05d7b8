@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://benchresources.in/cdm/Player" xmlns:tns="http://benchresources.in/cdm/Player"
+	elementFormDefault="qualified">
+
+	<xsd:element name="Sucursales">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="nombre" type="xsd:string" />
+				<xsd:element name="direccion" type="xsd:string" />
+				<xsd:element name="fecha" type="xsd:string" />
+				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="BancoType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="tns:Bancos" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
